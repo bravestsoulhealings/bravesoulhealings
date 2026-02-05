@@ -11,17 +11,20 @@
         nav a { text-decoration: none; color: #b8860b; margin: 0 15px; font-size: 1.1em; text-transform: uppercase; letter-spacing: 2px; }
         h1, h2 { font-family: 'Cinzel', serif; color: #b8860b; text-align: center; }
 
-        /* FULL IMAGE DISPLAY */
+        /* REMOVED BLACK BARS - Image now sits on the page background */
         .image-container {
             width: 100%;
-            background-color: #000; /* Black bars if the screen is wider than the photo */
+            background-color: #fdfbf7; /* Matches the page background */
             text-align: center;
+            padding-top: 20px;
         }
         .about-full-img {
             max-width: 100%;
             height: auto;
             display: block;
             margin: 0 auto;
+            /* Optional: adding a soft glow instead of black bars */
+            box-shadow: 0 0 20px rgba(218, 165, 32, 0.1); 
         }
         
         .bio-container { max-width: 800px; margin: 20px auto 50px; background: white; padding: 50px; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
