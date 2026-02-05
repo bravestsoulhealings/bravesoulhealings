@@ -3,40 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me | Brave Soul Healings</title>
+    <title>Services | Brave Soul Healings</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; font-family: 'Lato', sans-serif; color: #333; background-color: #fdfbf7; line-height: 1.8; }
-        nav { background: rgba(255, 255, 255, 0.95); padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(218, 165, 32, 0.1); }
-        nav a { text-decoration: none; color: #b8860b; margin: 0 15px; font-size: 1.1em; text-transform: uppercase; letter-spacing: 2px; }
-        
-        .container { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
-        h1 { font-family: 'Cinzel', serif; color: #b8860b; font-size: 3em; text-align: center; margin-bottom: 40px; }
+        body { margin: 0; font-family: 'Lato', sans-serif; background: #fdfbf7; overflow-x: hidden; color: #444; }
+        nav { background: white; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        nav a { text-decoration: none; color: #b8860b; margin: 0 15px; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; }
 
-        /* ETHEREAL IMAGE FLOAT */
-        .bio-wrapper { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
-        
-        .image-outer {
-            flex: 1; min-width: 320px; position: relative;
-            display: flex; justify-content: center;
+        /* THE SUN RAYS EFFECT */
+        .sun-rays-bg {
+            position: relative;
+            background: radial-gradient(circle at center top, #fffcd6 0%, #fdfbf7 60%);
+            min-height: 100vh; padding-bottom: 80px;
         }
-        
-        /* The "Glow" behind the photo */
-        .image-outer::after {
-            content: ''; position: absolute; width: 80%; height: 80%;
-            background: radial-gradient(circle, rgba(218, 165, 32, 0.3) 0%, transparent 70%);
-            z-index: -1; top: 10%; filter: blur(20px);
+        .sun-rays-bg::before {
+            content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: repeating-conic-gradient(from 0deg, rgba(255, 215, 0, 0.04) 0deg 15deg, transparent 15deg 30deg);
+            animation: rotate 100s linear infinite; z-index: 0; pointer-events: none;
+        }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        /* FIXED IMAGE FRAMING - No more cutting off at the top */
+        .image-frame-container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            padding: 50px 20px 20px 20px;
+        }
+        .framed-service-img {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            border-radius: 300px 300px 20px 20px; /* Arched Cathedral top */
+            border: 10px solid white;
+            box-shadow: 0 15px 40px rgba(218, 165, 32, 0.2);
         }
 
-        .about-img {
-            width: 100%; max-width: 400px; height: auto;
-            border-radius: 100px 100px 20px 20px; /* Elegant arched top */
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border: 8px solid white;
+        .service-container { max-width: 850px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+        h1 { font-family: 'Cinzel', serif; color: #b8860b; text-align: center; font-size: 3em; margin: 20px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        
+        .service-card { 
+            background: rgba(255, 255, 255, 0.9); 
+            padding: 30px; 
+            border-radius: 15px; 
+            text-align: center; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-bottom: 4px solid #b8860b;
+            transition: 0.3s;
         }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(218, 165, 32, 0.2); }
+        .price { font-size: 1.6em; color: #b8860b; font-family: 'Cinzel', serif; font-weight: bold; margin-top: 15px; }
 
-        .bio-content { flex: 1.5; min-width: 320px; }
-        .quote { font-family: 'Cinzel', serif; font-style: italic; color: #b8860b; font-size: 1.4em; margin: 30px 0; border-left: 3px solid #b8860b; padding-left: 20px; }
+        .form-section { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid rgba(218, 165, 32, 0.1); }
+        input, textarea, select { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 1em; }
+        button { width: 100%; padding: 18px; background: #b8860b; color: white; border: none; font-family: 'Cinzel'; cursor: pointer; border-radius: 8px; font-weight: bold; font-size: 1.2em; transition: 0.3s; }
+        button:hover { background: #daa520; box-shadow: 0 5px 15px rgba(218, 165, 32, 0.4); }
+        
+        .disclaimer { font-size: 0.85em; color: #777; text-align: center; margin-top: 50px; line-height: 1.6; font-style: italic; }
     </style>
 </head>
 <body>
@@ -48,24 +74,52 @@
         <a href="reviews.html">Testimonials</a>
     </nav>
 
-    <div class="container">
-        <h1>My Testimony</h1>
-        
-        <div class="bio-wrapper">
-            <div class="image-outer">
-                <img src="about-bg.jpg" alt="Natalie's Journey" class="about-img">
+    <div class="sun-rays-bg">
+        <div class="image-frame-container">
+            <img src="services-bg.jpg" alt="Divine Healing by the Water" class="framed-service-img">
+        </div>
+
+        <div class="service-container">
+            <h1>Sacred Offerings</h1>
+            
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Healings</h3>
+                    <p>Experience deep spiritual restoration, available both in person or through distance healing.</p>
+                    <div class="price">$180+</div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Pet Healings</h3>
+                    <p>Faith-based energy work specifically designed to bring peace to your animal companions.</p>
+                    <div class="price">$80</div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Home Clearings</h3>
+                    <p>Cleansing your living or office space of heavy or negative spiritual attachments.</p>
+                    <div class="price">$300+</div>
+                </div>
             </div>
 
-            <div class="bio-content">
-                <p>My name is Natalie Guerrero. I am an intuitive faith healer. Growing up I was a very shy, nervous person. I would always isolate myself and I was very quiet. For the longest time, I was suffering from severe sadness that at one point I started to experience panic attacks and anxiety.</p>
-                
-                <p>I always felt a deep connection to my ancestors, my Guardian angel, Archangels, angels and God all my life. However, as I got older, I started to drift apart. It wasn't until 2020-2023 when everything started to feel very heavy.</p>
+            <div class="form-section">
+                <h2 style="text-align:center; font-family:'Cinzel'; color:#b8860b; margin-top: 0;">Inquiry for Healing</h2>
+                <form>
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <select required>
+                        <option value="" disabled selected>Select a Service</option>
+                        <option>Healings ($180+)</option>
+                        <option>Pet Healings ($80)</option>
+                        <option>Home Clearings ($300+)</option>
+                    </select>
+                    <textarea rows="5" placeholder="Please briefly share what you are experiencing..."></textarea>
+                    <button type="submit">REQUEST APPOINTMENT</button>
+                </form>
+            </div>
 
-                <div class="quote">"I remember crying out to God almost down on my knees asking for guidance or to just feel at peace."</div>
-
-                <p>I searched for natural ways to heal. I discovered tarot, reiki, and mediumship, but every time I finished a class, I would feel empty. In May 2023, feeling hopeless, I searched for spiritual healings near me. I found a place that was different. When I arrived, the sadness I always felt was gone. I felt free, relieved, and lighter.</p>
-                
-                <p>This inspired me to start my healing journey. My faith has been restored, and I realized this was a calling to be an instrument of God to help those in need.</p>
+            <div class="disclaimer">
+                <strong>Disclaimer:</strong> Natalie Guerrero is not a licensed medical professional and does not provide medical diagnoses or treatments. None of the services or products offered by Brave Soul Healing are intended to serve as a substitute for scientifically backed, licensed medical care. All healing services are rooted in faith-based practices.
             </div>
         </div>
     </div>
