@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Brave Soul Healings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; font-family: 'Lato', sans-serif; overflow-x: hidden; background: #fdfbf7; }
+        nav { background: rgba(255, 255, 255, 0.95); padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { text-decoration: none; color: #b8860b; margin: 0 15px; font-size: 1.1em; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* GLOWING SUN RAYS ANIMATION */
+        .sun-rays-bg {
+            position: relative;
+            background: radial-gradient(circle at center top, #fffcd6 0%, #fdfbf7 60%);
+            padding-bottom: 50px; min-height: 100vh;
+        }
+        .sun-rays-bg::before {
+            content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: repeating-conic-gradient(from 0deg, rgba(255, 215, 0, 0.05) 0deg 10deg, transparent 10deg 20deg);
+            animation: rotate 60s linear infinite; z-index: 0; pointer-events: none;
+        }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .content-wrapper { position: relative; z-index: 1; text-align: center; }
+        
+        .top-image {
+            width: 100%; max-height: 500px; object-fit: cover; 
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+
+        .service-container { max-width: 800px; margin: 0 auto; padding: 40px; }
+        
+        .service-item {
+            background: rgba(255, 255, 255, 0.9); border: 2px solid #fff;
+            margin-bottom: 20px; padding: 30px; border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); text-align: center;
+            transition: 0.3s;
+        }
+        .service-item:hover { box-shadow: 0 0 30px rgba(255, 215, 0, 0.7); transform: translateY(-5px); }
+        .price { font-size: 1.5em; color: #b8860b; font-weight: bold; font-family: 'Cinzel', serif; margin-top: 10px; }
+
+        .contact-form { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-top: 50px; }
+        input, textarea, select { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Lato', sans-serif; box-sizing: border-box; }
+        button { width: 100%; padding: 15px; background: #b8860b; color: white; border: none; font-size: 1.2em; border-radius: 5px; cursor: pointer; font-family: 'Cinzel', serif; }
+        
+        .disclaimer { font-size: 0.8em; color: #777; margin-top: 50px; padding: 20px; border-top: 1px solid #ddd; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="services.html">Services</a>
+        <a href="reviews.html">Testimonials</a>
+    </nav>
+
+    <div class="sun-rays-bg">
+        <div class="content-wrapper">
+            <img src="services-bg.jpg" alt="Jesus healing by water" class="top-image">
+            
+            <h1 style="font-size: 3em; text-shadow: 0 0 20px #ffd700; color: #b8860b; margin-top: -50px;">Sacred Services</h1>
+            
+            <div class="service-container">
+                <div class="service-item">
+                    <h2>Healings</h2>
+                    <p>In person or distance healing to restore your spirit.</p>
+                    <div class="price">$180+ [cite: 57]</div>
+                </div>
+
+                <div class="service-item">
+                    <h2>Pet Healings</h2>
+                    <p>Bring peace and relief to your beloved pets.</p>
+                    <div class="price">$80 [cite: 58]</div>
+                </div>
+
+                <div class="service-item">
+                    <h2>Home Clearings</h2>
+                    <p>Remove negative energies from your living space.</p>
+                    <div class="price">$300+ [cite: 59]</div>
+                </div>
+
+                <div class="contact-form">
+                    <h2 style="margin-top: 0;">Request a Healing</h2>
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email Address" required>
+                        <select>
+                            <option>Select a Service</option>
+                            <option>Healings ($180+)</option>
+                            <option>Pet Healings ($80)</option>
+                            <option>Home Clearings ($300+)</option>
+                        </select>
+                        <textarea rows="5" placeholder="Briefly describe your situation..."></textarea>
+                        <button type="submit">Send Inquiry</button>
+                    </form>
+                </div>
+
+                <div class="disclaimer">
+                    <strong>DISCLAIMER:</strong> Natalie Guerrero is not a licensed medical professional and does not provide medical diagnoses or treatments. None of the services or products offered by Brave Soul Healing are intended to serve as a substitute for scientifically backed, licensed medical care. All healing services are rooted in faith-based practices. [cite: 60-62]
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
