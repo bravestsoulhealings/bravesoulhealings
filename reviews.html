@@ -6,41 +6,97 @@
     <title>Testimonials | Brave Soul Healings</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; font-family: 'Lato', sans-serif; background-color: #fdfbf7; }
-        nav { background: white; padding: 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        nav a { text-decoration: none; color: #b8860b; margin: 0 15px; text-transform: uppercase; letter-spacing: 2px; }
+        body { margin: 0; font-family: 'Lato', sans-serif; background-color: #fdfbf7; color: #444; }
+        nav { background: white; padding: 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        nav a { text-decoration: none; color: #b8860b; margin: 0 15px; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; }
 
-        /* ETHEREAL BACKGROUND WRAPPER */
-        .testimonials-hero {
-            position: relative;
-            padding: 100px 20px;
-            background-image: linear-gradient(to bottom, rgba(253, 251, 247, 0.8), rgba(253, 251, 247, 0.9)), url('reviews-bg.jpg');
-            background-attachment: fixed; /* Parallax effect */
-            background-size: cover;
-            background-position: center;
+        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+        h1 { font-family: 'Cinzel', serif; color: #b8860b; text-align: center; font-size: 3em; margin-bottom: 50px; }
+
+        /* TWO-COLUMN LAYOUT */
+        .content-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        /* LEFT SIDE: THE PHOTO */
+        .photo-column {
+            flex: 1;
+            min-width: 300px;
             text-align: center;
         }
 
-        h1 { font-family: 'Cinzel', serif; color: #b8860b; font-size: 3em; margin-bottom: 10px; }
-        
-        .review-container { max-width: 700px; margin: 0 auto; position: relative; z-index: 2; }
-
-        .review-card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 30px 0 30px 0; /* Spiritual geometric shape */
-            box-shadow: 0 20px 40px rgba(218, 165, 32, 0.1);
-            margin-bottom: 40px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(218, 165, 32, 0.2);
+        .framed-img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 200px 200px 20px 20px; /* Holy Arch Shape */
+            border: 12px solid white;
+            box-shadow: 0 20px 40px rgba(218, 165, 32, 0.2);
+            outline: 1px solid rgba(218, 165, 32, 0.3);
         }
 
-        .review-text { font-style: italic; font-size: 1.2em; color: #444; }
-        
-        .form-section { background: white; padding: 60px 20px; text-align: center; }
-        .form-card { max-width: 600px; margin: 0 auto; background: #fff8e1; padding: 40px; border-radius: 20px; }
+        /* RIGHT SIDE: THE REVIEWS */
+        .reviews-column {
+            flex: 1.2;
+            min-width: 320px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        /* Decorative Gold Quote Mark */
+        .review-card::before {
+            content: "“";
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: 'Cinzel';
+            font-size: 5em;
+            color: rgba(218, 165, 32, 0.1);
+        }
+
+        .review-text {
+            font-style: italic;
+            font-size: 1.2em;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .author {
+            margin-top: 20px;
+            text-align: right;
+            font-weight: bold;
+            color: #b8860b;
+            letter-spacing: 1px;
+        }
+
+        /* SUBMISSION FORM */
+        .form-area {
+            background: #fff8e1;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+            border: 1px solid #ffe082;
+        }
+
         input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
-        button { width: 100%; padding: 15px; background: #b8860b; color: white; border: none; font-family: 'Cinzel'; cursor: pointer; border-radius: 8px; }
+        button { width: 100%; padding: 15px; background: #b8860b; color: white; border: none; font-family: 'Cinzel'; cursor: pointer; border-radius: 8px; font-weight: bold; font-size: 1.1em; transition: 0.3s; }
+        button:hover { background: #daa520; transform: translateY(-2px); }
+
+        @media (max-width: 768px) {
+            .content-flex { flex-direction: column; }
+            h1 { font-size: 2.2em; }
+        }
     </style>
 </head>
 <body>
@@ -52,28 +108,23 @@
         <a href="reviews.html">Testimonials</a>
     </nav>
 
-    <div class="testimonials-hero">
-        <h1>Client Testimonials</h1>
-        <p style="color: #888; letter-spacing: 2px;">STORIES OF HEALING & RESTORATION</p>
-        
-        <div class="review-container">
-            <div class="review-card">
-                <p class="review-text">"The heavy trauma I was carrying felt lighter instantly. I felt seen and heard for the first time. The presence of God was undeniable."</p>
-                <p style="color: #b8860b; font-weight: bold; margin-top: 20px;">— BRAVE SOUL CLIENT</p>
+    <div class="container">
+        <h1>Voices of Healing</h1>
+
+        <div class="content-flex">
+            <div class="photo-column">
+                <img src="reviews-bg.jpg" alt="Jesus Blessing Woman" class="framed-img">
+                <p style="margin-top: 20px; color: #b8860b; font-style: italic; font-family: 'Cinzel';">Guided by his divine grace.</p>
             </div>
-        </div>
-    </div>
 
-    <div class="form-section">
-        <div class="form-card">
-            <h2 style="font-family: 'Cinzel'; color: #b8860b;">Share Your Journey</h2>
-            <form>
-                <input type="text" placeholder="Name (Optional)">
-                <textarea rows="5" placeholder="How has your life changed?"></textarea>
-                <button type="submit">SUBMIT TESTIMONY</button>
-            </form>
-        </div>
-    </div>
+            <div class="reviews-column">
+                <div class="review-card">
+                    <p class="review-text">The heavy trauma I was carrying felt lighter instantly. I felt seen and heard for the first time. The presence of God was undeniable and I finally feel at peace.</p>
+                    <p class="author">— BRAVE SOUL CLIENT</p>
+                </div>
 
-</body>
-</html>
+                <div class="form-area">
+                    <h2 style="font-family: 'Cinzel'; color: #b8860b; text-align: center; margin-top: 0;">Share Your Experience</h2>
+                    <form>
+                        <input type="text" placeholder="Your Name (Optional)">
+                        <textarea rows="4" placeholder="How has your life
