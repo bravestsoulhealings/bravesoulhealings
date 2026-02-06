@@ -101,29 +101,25 @@
                     <div class="price">$300+</div>
                 </div>
             </div>
+<div class="form-section">
+    <h2 style="text-align:center; font-family:'Cinzel'; color:#b8860b; margin-top: 0;">
+        Inquiry for Healing
+    </h2>
 
-            <div class="form-section">
-                <form action="https://formspree.io/f/mjgebdqn">
-                <h2 style="text-align:center; font-family:'Cinzel'; color:#b8860b; margin-top: 0;">Inquiry for Healing</h2>
-                <form>
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="email" placeholder="Email Address" required>
-                    <select required>
-                        <option value="" disabled selected>Select a Service</option>
-                        <option>Healings ($180+)</option>
-                        <option>Pet Healings ($80)</option>
-                        <option>Home Clearings ($300+)</option>
-                    </select>
-                    <textarea rows="5" placeholder="Please briefly share what you are experiencing..."></textarea>
-                    <button type="submit">REQUEST APPOINTMENT</button>
-                </form>
-            </div>
+    <form action="https://formspree.io/f/mjgebdqn" method="POST">
+        <input type="text" name="name" placeholder="Full Name" required>
 
-            <div class="disclaimer">
-                <strong>Disclaimer:</strong> Natalie Guerrero is not a licensed medical professional and does not provide medical diagnoses or treatments. None of the services or products offered by Brave Soul Healing are intended to serve as a substitute for scientifically backed, licensed medical care. All healing services are rooted in faith-based practices.
-            </div>
-        </div>
-    </div>
+        <input type="email" name="email" placeholder="Email Address" required>
 
-</body>
-</html>
+        <select name="service" required>
+            <option value="" disabled selected>Select a Service</option>
+            <option value="Healing">Healings ($180+)</option>
+            <option value="Pet Healing">Pet Healings ($80)</option>
+            <option value="Home Clearing">Home Clearings ($300+)</option>
+        </select>
+
+        <textarea name="message" rows="5" placeholder="Please briefly share what you are experiencing..."></textarea>
+
+        <button type="submit">REQUEST APPOINTMENT</button>
+    </form>
+</div>
