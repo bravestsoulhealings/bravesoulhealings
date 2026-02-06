@@ -123,8 +123,25 @@
                     <p class="author">— BRAVE SOUL CLIENT</p>
                 </div>
 
-                <div class="form-area">
-                    <h2 style="font-family: 'Cinzel'; color: #b8860b; text-align: center; margin-top: 0;">Share Your Experience</h2>
-                    <form>
-                        <input type="text" placeholder="Your Name (Optional)">
-                        <textarea rows="4" placeholder="How has your life
+                <<div class="form-area">
+  <h2 style="font-family: 'Cinzel'; color: #b8860b; text-align: center; margin-top: 0;">
+    Share Your Experience
+  </h2>
+
+  <form action="https://formspree.io/f/mjgebdqn" method="POST">
+    <input
+      type="text"
+      name="name"
+      placeholder="Your Name (Optional)"
+    >
+
+    <textarea
+      name="testimonial"
+      rows="4"
+      placeholder="How has your life or spiritual journey been impacted?"
+      required
+    ></textarea>
+
+    <button type="submit">SUBMIT TESTIMONIAL</button>
+  </form>
+</div>
