@@ -19,9 +19,9 @@
             flex-wrap: wrap;
             gap: 50px;
             align-items: flex-start;
+            margin-bottom: 60px;
         }
 
-        /* LEFT SIDE: THE PHOTO */
         .photo-column {
             flex: 1;
             min-width: 300px;
@@ -32,13 +32,12 @@
             width: 100%;
             max-width: 450px;
             height: auto;
-            border-radius: 200px 200px 20px 20px; /* Holy Arch Shape */
+            border-radius: 200px 200px 20px 20px; 
             border: 12px solid white;
             box-shadow: 0 20px 40px rgba(218, 165, 32, 0.2);
             outline: 1px solid rgba(218, 165, 32, 0.3);
         }
 
-        /* RIGHT SIDE: THE REVIEWS */
         .reviews-column {
             flex: 1.2;
             min-width: 320px;
@@ -53,7 +52,6 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
 
-        /* Decorative Gold Quote Mark */
         .review-card::before {
             content: "“";
             position: absolute;
@@ -80,12 +78,10 @@
             letter-spacing: 1px;
         }
 
-        /* SUBMISSION FORM */
         .form-area {
             background: #fff8e1;
             padding: 40px;
             border-radius: 20px;
-            margin-top: 40px;
             border: 1px solid #ffe082;
         }
 
@@ -123,39 +119,19 @@
                     <p class="author">— BRAVE SOUL CLIENT</p>
                 </div>
 
-
-                <<div class="form-area">
-  <h2 style="font-family: 'Cinzel'; color: #b8860b; text-align: center; margin-top: 0;">
-    Share Your Experience
-  </h2>
-
-  <form action="https://formspree.io/f/mjgebdqn" method="POST">
-    <input
-      type="text"
-      name="name"
-      placeholder="Your Name (Optional)"
-    >
-
-    <textarea
-      name="testimonial"
-      rows="4"
-      placeholder="How has your life or spiritual journey been impacted?"
-      required
-    ></textarea>
-
-    <button type="submit">SUBMIT TESTIMONIAL</button>
-  </form>
-<div class="form-area">
-            <h2 style="font-family: 'Cinzel'; color: #b8860b; text-align: center; margin-top: 0;">
-                Share Your Experience
-            </h2>
-            <form action="https://formspree.io/f/mjgebdqn" method="POST">
-                <input type="text" name="name" placeholder="Your Name (Optional)">
-                <textarea name="testimonial" rows="4" placeholder="How has your life or spiritual journey been impacted?" required></textarea>
-                <button type="submit">SUBMIT TESTIMONIAL</button>
-            </form>
+                <div class="form-area">
+                    <h2 style="font-family: 'Cinzel'; color: #b8860b; text-align: center; margin-top: 0;">Share Your Experience</h2>
+                    <form action="https://formspree.io/f/mjgebdqn" method="POST">
+                        <input type="text" name="name" placeholder="Your Name (Optional)">
+                        <textarea name="testimonial" rows="4" placeholder="How has your life or spiritual journey been impacted?" required></textarea>
+                        <button type="submit">SUBMIT TESTIMONIAL</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div> <footer style="background: #fdfbf7; padding: 100px 20px 60px; text-align: center; position: relative;">
+    </div>
+
+    <footer style="background: #fdfbf7; padding: 100px 20px 60px; text-align: center; position: relative;">
         <div style="width: 150px; height: 1px; background: linear-gradient(to right, transparent, #b8860b, transparent); margin: 0 auto 50px; opacity: 0.5;"></div>
         <div style="max-width: 700px; margin: 0 auto;">
             <h3 style="font-family: 'Cinzel', serif; color: #b8860b; font-size: 1.5em; letter-spacing: 3px; margin-bottom: 30px; font-weight: 400;">Brave Soul Healings</h3>
@@ -169,3 +145,4 @@
         </div>
     </footer>
 </body>
+</html>
