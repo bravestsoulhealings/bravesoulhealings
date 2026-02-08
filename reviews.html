@@ -13,86 +13,23 @@
         .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
         h1 { font-family: 'Cinzel', serif; color: #b8860b; text-align: center; font-size: 3em; margin-bottom: 50px; }
 
-        /* TWO-COLUMN LAYOUT */
-        .content-flex {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 50px;
-            align-items: flex-start;
-            margin-bottom: 60px;
-        }
+        .content-flex { display: flex; flex-wrap: wrap; gap: 50px; align-items: flex-start; margin-bottom: 60px; }
+        .photo-column { flex: 1; min-width: 300px; text-align: center; }
+        .framed-img { width: 100%; max-width: 450px; height: auto; border-radius: 200px 200px 20px 20px; border: 12px solid white; box-shadow: 0 20px 40px rgba(218, 165, 32, 0.2); outline: 1px solid rgba(218, 165, 32, 0.3); }
 
-        .photo-column {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
+        .reviews-column { flex: 1.2; min-width: 320px; }
+        .review-card { background: white; padding: 40px; border-radius: 15px; margin-bottom: 30px; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.05); animation: fadeIn 0.8s ease-in; }
+        .review-card::before { content: "“"; position: absolute; top: 10px; left: 20px; font-family: 'Cinzel'; font-size: 5em; color: rgba(218, 165, 32, 0.1); }
+        .review-text { font-style: italic; font-size: 1.2em; line-height: 1.7; position: relative; z-index: 1; }
+        .author { margin-top: 20px; text-align: right; font-weight: bold; color: #b8860b; letter-spacing: 1px; }
 
-        .framed-img {
-            width: 100%;
-            max-width: 450px;
-            height: auto;
-            border-radius: 200px 200px 20px 20px; 
-            border: 12px solid white;
-            box-shadow: 0 20px 40px rgba(218, 165, 32, 0.2);
-            outline: 1px solid rgba(218, 165, 32, 0.3);
-        }
-
-        .reviews-column {
-            flex: 1.2;
-            min-width: 320px;
-        }
-
-        .review-card {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            position: relative;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        }
-
-        .review-card::before {
-            content: "“";
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            font-family: 'Cinzel';
-            font-size: 5em;
-            color: rgba(218, 165, 32, 0.1);
-        }
-
-        .review-text {
-            font-style: italic;
-            font-size: 1.2em;
-            line-height: 1.7;
-            position: relative;
-            z-index: 1;
-        }
-
-        .author {
-            margin-top: 20px;
-            text-align: right;
-            font-weight: bold;
-            color: #b8860b;
-            letter-spacing: 1px;
-        }
-
-        .form-area {
-            background: #fff8e1;
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid #ffe082;
-        }
-
-        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        .form-area { background: #fff8e1; padding: 40px; border-radius: 20px; border: 1px solid #ffe082; }
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-family: 'Lato'; }
         button { width: 100%; padding: 15px; background: #b8860b; color: white; border: none; font-family: 'Cinzel'; cursor: pointer; border-radius: 8px; font-weight: bold; font-size: 1.1em; transition: 0.3s; }
         button:hover { background: #daa520; transform: translateY(-2px); }
 
-        @media (max-width: 768px) {
-            .content-flex { flex-direction: column; }
-            h1 { font-size: 2.2em; }
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 768px) { .content-flex { flex-direction: column; } h1 { font-size: 2.2em; } }
     </style>
 </head>
 <body>
@@ -114,18 +51,21 @@
             </div>
 
             <div class="reviews-column">
-                <div class="review-card">
-                    <p class="review-text">The heavy trauma I was carrying felt lighter instantly. I felt seen and heard for the first time. The presence of God was undeniable and I finally feel at peace.</p>
-                    <p class="author">— BRAVE SOUL CLIENT</p>
+                <div id="live-reviews-container">
+                    <p style="text-align:center; color:#b8860b; font-family:'Cinzel';">Gathering testimonies of faith...</p>
                 </div>
 
-                <div class="form-area">
+                <div class="form-area" id="form-container">
                     <h2 style="font-family: 'Cinzel'; color: #b8860b; text-align: center; margin-top: 0;">Share Your Experience</h2>
-                    <form action="https://formspree.io/f/mjgebdqn" method="POST">
+                    <form id="testimonialForm">
                         <input type="text" name="name" placeholder="Your Name (Optional)">
                         <textarea name="testimonial" rows="4" placeholder="How has your life or spiritual journey been impacted?" required></textarea>
-                        <button type="submit">SUBMIT TESTIMONIAL</button>
+                        <button type="submit" id="submitBtn">SUBMIT TESTIMONIAL</button>
                     </form>
+                </div>
+                <div id="thankYouMessage" style="display:none; text-align:center; background:#fff8e1; padding:40px; border-radius:20px; border:1px solid #ffe082;">
+                    <h2 style="font-family:'Cinzel'; color:#b8860b;">Thank You</h2>
+                    <p>Your beautiful testimony has been received and added to our wall of healing.</p>
                 </div>
             </div>
         </div>
@@ -144,5 +84,61 @@
             <p style="font-size: 0.7em; color: #aaa; margin-top: 40px;">&copy; 2026 BRAVE SOUL HEALINGS</p>
         </div>
     </footer>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwxh9QkhFgBE4Gi5Uu7TivGPw4WAGSAJap9_-4r_PLBxhfvec-f3LS0lL8XEPrlMlum/exec';
+
+        // Load Reviews from Sheet
+        async function loadReviews() {
+            try {
+                const response = await fetch(scriptURL);
+                const reviews = await response.json();
+                const container = document.getElementById('live-reviews-container');
+                
+                if (reviews.length === 0) {
+                    container.innerHTML = '<p style="text-align:center; font-style:italic;">No testimonies yet. Be the first to share!</p>';
+                    return;
+                }
+
+                container.innerHTML = ''; 
+                reviews.reverse().forEach(rev => { // Newest first
+                    container.innerHTML += `
+                        <div class="review-card">
+                            <p class="review-text">${rev.testimonial}</p>
+                            <p class="author">— ${rev.name || 'BRAVE SOUL CLIENT'}</p>
+                        </div>
+                    `;
+                });
+            } catch (e) {
+                console.error('Error!', e.message);
+            }
+        }
+
+        // Handle Form Submission
+        document.getElementById('testimonialForm').addEventListener('submit', e => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.innerText = "SENDING...";
+
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+
+            fetch(scriptURL, { 
+                method: 'POST', 
+                mode: 'no-cors', // Necessary for Google Scripts
+                body: JSON.stringify(data)
+            })
+            .then(() => {
+                document.getElementById('form-container').style.display = 'none';
+                document.getElementById('thankYouMessage').style.display = 'block';
+                // Small delay to allow Google to update before reloading
+                setTimeout(loadReviews, 2000);
+            })
+            .catch(error => console.error('Error!', error.message));
+        });
+
+        window.onload = loadReviews;
+    </script>
 </body>
 </html>
