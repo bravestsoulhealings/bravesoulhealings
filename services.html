@@ -23,7 +23,6 @@
         }
         @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-        /* FIXED IMAGE FRAMING - No more cutting off at the top */
         .image-frame-container {
             position: relative;
             z-index: 1;
@@ -35,7 +34,7 @@
             max-width: 600px;
             width: 100%;
             height: auto;
-            border-radius: 300px 300px 20px 20px; /* Arched Cathedral top */
+            border-radius: 300px 300px 20px 20px; 
             border: 10px solid white;
             box-shadow: 0 15px 40px rgba(218, 165, 32, 0.2);
         }
@@ -62,7 +61,7 @@
         button { width: 100%; padding: 18px; background: #b8860b; color: white; border: none; font-family: 'Cinzel'; cursor: pointer; border-radius: 8px; font-weight: bold; font-size: 1.2em; transition: 0.3s; }
         button:hover { background: #daa520; box-shadow: 0 5px 15px rgba(218, 165, 32, 0.4); }
         
-        .disclaimer { font-size: 0.85em; color: #777; text-align: center; margin-top: 50px; line-height: 1.6; font-style: italic; }
+        .disclaimer { font-size: 0.85em; color: #777; text-align: center; margin-top: 50px; line-height: 1.6; font-style: italic; margin-bottom: 40px; }
     </style>
 </head>
 <body>
@@ -102,7 +101,7 @@
                 </div>
             </div>
 
-<div class="form-section">
+            <div class="form-section">
                 <h2 style="text-align:center; font-family:'Cinzel'; color:#b8860b; margin-top: 0;">Inquiry for Healing</h2>
                 <form action="https://formspree.io/f/mjgebdqn" method="POST">
                     <input type="text" name="name" placeholder="Full Name" required>
@@ -119,7 +118,10 @@
             </div>
 
             <p class="disclaimer">Disclaimer: These services are faith-based spiritual healings. They are not a substitute for professional medical or psychological treatment.</p>
-        </div> </div> <footer style="background: #fdfbf7; padding: 100px 20px 60px; text-align: center; position: relative;">
+        </div>
+    </div> 
+
+    <footer style="background: #fdfbf7; padding: 100px 20px 60px; text-align: center; position: relative;">
         <div style="width: 150px; height: 1px; background: linear-gradient(to right, transparent, #b8860b, transparent); margin: 0 auto 50px; opacity: 0.5;"></div>
         <div style="max-width: 700px; margin: 0 auto;">
             <h3 style="font-family: 'Cinzel', serif; color: #b8860b; font-size: 1.5em; letter-spacing: 3px; margin-bottom: 30px; font-weight: 400;">Brave Soul Healings</h3>
@@ -133,3 +135,4 @@
         </div>
     </footer>
 </body>
+</html>
