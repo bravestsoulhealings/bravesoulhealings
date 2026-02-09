@@ -23,127 +23,111 @@
         /* NAVIGATION */
         nav { 
             background: rgba(255, 255, 255, 0.98); 
-            padding: 20px; 
+            padding: 25px; 
             text-align: center; 
             position: sticky; 
             top: 0; 
             z-index: 1000; 
-            box-shadow: 0 2px 10px rgba(218, 165, 32, 0.1); 
+            border-bottom: 1px solid rgba(184, 134, 11, 0.1);
         }
         nav a { 
             text-decoration: none; 
             color: var(--gold); 
-            margin: 0 15px; 
-            font-size: 1.1em; 
+            margin: 0 20px; 
+            font-size: 1em; 
             text-transform: uppercase; 
-            letter-spacing: 2px; 
-            font-weight: bold;
+            letter-spacing: 3px; 
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 40px;
+        /* THE PARALLEL SPREAD */
+        .editorial-container {
+            max-width: 1300px;
+            margin: 80px auto;
+            display: flex;
+            align-items: stretch; /* This makes them exactly parallel */
+            gap: 100px;
+            padding: 0 40px;
         }
 
-        /* TOP SECTION: Parallel Portrait & Testimony */
-        .intro-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: stretch; /* Forces both sides to match height */
-            margin-bottom: 120px;
+        .editorial-image {
+            flex: 1;
         }
 
-        .portrait-side {
-            height: 100%;
-        }
-
-        .portrait-side img {
+        .editorial-image img {
             width: 100%;
             height: 100%;
-            display: block;
-            object-fit: cover; /* Ensures photo fills the height of the text */
-            border-radius: 5px;
+            object-fit: cover; /* Ensures your photo matches the text height perfectly */
+            border-radius: 2px;
         }
 
-        .testimony-side h1 {
+        .editorial-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 4em; margin: 0; line-height: 1; }
+        .subtitle { font-family: 'Pinyon Script', cursive; color: var(--gold); font-size: 2.5em; margin-bottom: 40px; }
+
+        /* Powerful Sentence Emphasis */
+        .power-statement {
             font-family: 'Cinzel', serif;
             color: var(--gold);
-            font-size: 3.2em;
-            margin: 0;
-            letter-spacing: 2px;
+            font-size: 1.4em;
+            line-height: 1.4;
+            margin: 40px 0;
+            font-style: italic;
+            border-left: 1px solid var(--gold);
+            padding-left: 30px;
         }
 
-        .testimony-side .script-subtitle {
-            font-family: 'Pinyon Script', cursive;
-            color: var(--gold);
-            font-size: 2em;
-            margin-bottom: 30px;
-        }
-
-        .testimony-side p {
+        .testimony-body p {
             font-size: 1.1em;
             margin-bottom: 25px;
             text-align: justify;
+            color: #555;
         }
 
-        /* Emphasis Styling */
-        .emphasis {
-            color: var(--gold);
-            font-family: 'Cinzel', serif;
-            font-weight: bold;
-            display: block;
-            margin: 30px 0;
-            font-size: 1.2em;
-            line-height: 1.4;
-            border-left: 2px solid var(--gold);
-            padding-left: 20px;
-        }
-
-        /* BOTTOM SECTION: Horizon (Jesus Path + Floating Quote) */
-        .horizon-section {
-            border-top: 1px solid rgba(184, 134, 11, 0.2);
-            padding-top: 100px;
+        /* THE HORIZON (Jesus Path & Quote) */
+        .horizon {
+            margin-top: 120px;
             text-align: center;
+            padding-bottom: 100px;
         }
 
-        .horizon-image {
-            max-width: 700px;
+        .horizon-photo {
+            max-width: 900px;
             margin: 0 auto 60px;
         }
 
-        .horizon-image img {
+        .horizon-photo img {
             width: 100%;
-            border-radius: 4px;
+            filter: sepia(0.2) contrast(1.1);
+            opacity: 0.9;
         }
 
         .horizon-quote {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .horizon-quote blockquote {
             font-family: 'Cinzel', serif;
-            font-size: 2.2em;
             color: var(--gold);
-            font-style: italic;
-            line-height: 1.4;
-            margin: 0;
+            font-size: 2.2em;
+            max-width: 1000px;
+            margin: 0 auto;
+            line-height: 1.5;
+            letter-spacing: 1px;
         }
 
         /* FOOTER */
         footer {
-            background: var(--cream);
-            padding: 100px 20px 60px;
+            padding: 80px 20px;
             text-align: center;
             border-top: 1px solid rgba(184, 134, 11, 0.1);
         }
 
-        @media (max-width: 900px) {
-            .intro-grid { grid-template-columns: 1fr; }
-            .portrait-side img { height: 500px; }
-            .horizon-quote blockquote { font-size: 1.5em; }
+        @media (max-width: 1000px) {
+            .editorial-container { flex-direction: column; }
+            .editorial-image { height: 500px; }
+            .horizon-quote { font-size: 1.5em; padding: 0 20px; }
         }
     </style>
 </head>
@@ -156,60 +140,48 @@
         <a href="reviews.html">Testimonials</a>
     </nav>
 
-    <div class="container">
-        
-        <div class="intro-grid">
-            <div class="portrait-side">
-                <img src="natalie-portrait.jpg" alt="Natalie Guerrero">
-            </div>
+    <div class="editorial-container">
+        <div class="editorial-image">
+            <img src="natalie-portrait.jpg" alt="Natalie Guerrero">
+        </div>
 
-            <div class="testimony-side">
-                <h1>My Testimony</h1>
-                <div class="script-subtitle">Healed to Heal Others</div>
-                
+        <div class="editorial-text">
+            <h1>My Testimony</h1>
+            <div class="subtitle">Healed to Heal Others</div>
+
+            <div class="testimony-body">
                 <p><strong>My name is Natalie Guerro, and I am an intuitive faith healer.</strong> My journey to this calling began in the quiet shadows of my youth. Growing up I was a shy, nervous child who often sought isolation to cope with a deep, persistent sadness.</p>
                 
-                <p>Despite the heaviness I carried, I was never truly alone. <strong>I felt a constant, thinning veil between me and the divine—a connection to my ancestors, the Archangels, and God.</strong></p>
+                <p>Despite the heaviness I carried, I was never truly alone. I felt a constant, thinning veil between me and the divine—a connection to my ancestors, the Archangels, and God.</p>
 
-                <p>Between 2020 and 2023, life began to feel incredibly heavy. I discovered tarot, reiki, and mediumship, but with every certificate earned, I was met with the same hollow echo. <span class="emphasis">I was learning the tools, but I wasn't finding the cure.</span></p>
-                
-                <p>By May 2023, I reached a point of total exhaustion. Defeated and hopeless, I fell to my knees and cried out to God, begging for guidance and a sense of peace.</p>
+                <div class="power-statement">
+                    "I was learning the tools, but I wasn't finding the cure."
+                </div>
 
-                <p>I arrived at my appointment trembling with nerves and fear, but I walked out a different person. <span class="emphasis">For the first time in my life, the heavy sadness that had defined me was simply gone.</span></p>
+                <p>By May 2023, I reached a point of total exhaustion. Defeated and hopeless, I fell to my knees and cried out to God, begging for guidance and a sense of peace. In that moment of divine surrender, I was led to a spiritual healing that felt different from anything I had ever seen.</p>
+
+                <div class="power-statement">
+                    "For the first time in my life, the heavy sadness that had defined me was simply gone."
+                </div>
                 
                 <p>Today, I stand as an instrument of the Divine, dedicated to helping others break through their own shadows to find the freedom and peace that only true faith can provide.</p>
             </div>
         </div>
+    </div>
 
-        <div class="horizon-section">
-            <div class="horizon-image">
-                <img src="jesus-path.jpg" alt="The Journey of Faith">
-            </div>
-
-            <div class="horizon-quote">
-                <blockquote>
-                    "If you feel like you are drowning in shadows, look for me. I am the proof that the morning always comes, and the light always wins."
-                </blockquote>
-            </div>
+    <div class="horizon">
+        <div class="horizon-photo">
+            <img src="jesus-path.jpg" alt="Faith Path">
         </div>
-
+        <div class="horizon-quote">
+            "If you feel like you are drowning in shadows, look for me. I am the proof that the morning always comes, and the light always wins."
+        </div>
     </div>
 
     <footer>
-        <div style="width: 150px; height: 1px; background: linear-gradient(to right, transparent, #b8860b, transparent); margin: 0 auto 50px; opacity: 0.5;"></div>
-        <div style="max-width: 700px; margin: 0 auto;">
-            <h3 style="font-family: 'Cinzel', serif; color: #b8860b; font-size: 1.5em; letter-spacing: 3px; margin-bottom: 30px; font-weight: 400;">Brave Soul Healings</h3>
-            <p style="font-family: 'Lato', sans-serif; color: #776d5a; line-height: 2; font-size: 1.1em;">
-                <span style="font-family: 'Cinzel', serif; color: #b8860b; display: block; margin-bottom: 5px; letter-spacing: 1px;">Natalie Guerrero</span>
-                Ontario, California <br>
-                <a href="tel:8404664744" style="color: #b8860b; text-decoration: none;">840.466.4744</a> <br>
-                <a href="mailto:bravesoulhealings@gmail.com" style="color: #b8860b; text-decoration: none;">bravesoulhealings@gmail.com</a>
-            </p>
-            <div style="margin-top: 60px; opacity: 0.6;">
-                <p style="font-family: 'Cinzel', serif; font-size: 0.8em; color: #b8860b; letter-spacing: 2px;">Faith-Based Restoration</p>
-                <p style="font-size: 0.7em; color: #aaa; margin-top: 20px; letter-spacing: 1px;">&copy; 2026 BRAVE SOUL HEALINGS</p>
-            </div>
-        </div>
+        <div style="width: 150px; height: 1px; background: var(--gold); margin: 0 auto 40px; opacity: 0.3;"></div>
+        <h3 style="font-family: 'Cinzel', serif; color: var(--gold); letter-spacing: 3px; font-weight: 400;">Brave Soul Healings</h3>
+        <p style="color: #776d5a;">Natalie Guerrero | Ontario, California</p>
     </footer>
 
 </body>
