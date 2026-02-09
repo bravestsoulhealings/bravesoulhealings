@@ -3,73 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me | Brave Soul Healings</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <title>About Natalie | Brave Soul Healings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; font-family: 'Lato', sans-serif; color: #333; background-color: #fdfbf7; line-height: 1.8; }
-        nav { background: rgba(255, 255, 255, 0.95); padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(218, 165, 32, 0.1); }
-        nav a { text-decoration: none; color: #b8860b; margin: 0 15px; text-transform: uppercase; letter-spacing: 2px; }
-        .container { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
-        h1 { font-family: 'Cinzel', serif; color: #b8860b; font-size: 3em; text-align: center; margin-bottom: 40px; }
-        .bio-wrapper { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
-        .image-outer { flex: 1; min-width: 320px; display: flex; justify-content: center; }
-        .about-img { width: 100%; max-width: 400px; border-radius: 100px 100px 20px 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 8px solid white; }
-        .bio-content { flex: 1.5; min-width: 320px; }
-        .quote { font-family: 'Cinzel', serif; font-style: italic; color: #b8860b; font-size: 1.4em; margin: 30px 0; border-left: 3px solid #b8860b; padding-left: 20px; }
+        :root {
+            --gold: #d4af37;
+            --deep-red: #5e1a1a;
+            --warm-white: #fdfaf5;
+        }
+
+        body { 
+            margin: 0; 
+            font-family: 'Cormorant Garamond', serif; 
+            background-color: var(--warm-white); 
+            color: #333; 
+            line-height: 1.8;
+        }
+
+        /* Nav */
+        nav { padding: 30px; text-align: center; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9em; font-family: 'Cinzel', serif; }
+        nav a { text-decoration: none; color: var(--deep-red); margin: 0 15px; }
+
+        /* The Focal Point Section */
+        .hero-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .focal-image-container {
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        /* YOUR PORTRAIT - THE MAIN FOCUS */
+        .main-portrait {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 250px 250px 20px 20px; /* Arch shape */
+            border: 12px solid white;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* THE JESUS IMAGE - THE SUPPORTING SPIRIT */
+        .supporting-image {
+            position: absolute;
+            bottom: -30px;
+            right: -60px;
+            width: 220px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 6px solid white;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            z-index: 3;
+            /* Makes it look like a sacred card or icon */
+            outline: 1px solid var(--gold);
+        }
+
+        /* Decorative Halo behind you */
+        .halo-bg {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        /* Text Content */
+        .bio-text {
+            max-width: 800px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        h1 { 
+            font-family: 'Cinzel', serif; 
+            font-size: 3.5em; 
+            color: var(--deep-red); 
+            margin: 0 0 10px 0; 
+            font-weight: 400;
+        }
+
+        .title-tag {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            letter-spacing: 5px;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .content-body {
+            font-size: 1.3em;
+            color: #444;
+            text-align: justify;
+        }
+
+        .highlight-quote {
+            font-family: 'Cinzel', serif;
+            font-style: italic;
+            color: var(--deep-red);
+            font-size: 1.4em;
+            margin: 40px 0;
+            display: block;
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding: 20px 0;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding: 60px;
+            text-align: center;
+            background: #f4efeb;
+        }
+
+        /* Responsive for mobile */
+        @media (max-width: 768px) {
+            .main-portrait { max-width: 300px; }
+            .supporting-image { width: 150px; height: 200px; right: -20px; }
+            h1 { font-size: 2.5em; }
+            .halo-bg { width: 350px; height: 350px; }
+        }
     </style>
 </head>
 <body>
+
     <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About Me</a>
         <a href="services.html">Services</a>
         <a href="reviews.html">Testimonials</a>
     </nav>
-    <div class="container">
-        <h1>My Testimony</h1>
-        <div class="bio-wrapper">
-            <div class="image-outer">
-                <img src="about-bg.jpg" alt="Natalie's Journey" class="about-img">
-            </div>
-            <div class="bio-content">
-                <p>My name is Natalie Guerrero. I am an intuitive faith healer. Growing up I was a very shy, nervous person. I would always isolate myself and I was very quiet. For the longest time, I was suffering from severe sadness that at one point I started to experience panic attacks and anxiety.</p>
-                <p>I always felt a deep connection to my ancestors, my Guardian angel, Archangels, angels and God all my life. However, as I got older, I started to drift apart. It wasn't until 2020-2023 when everything started to feel very heavy.</p>
-                <div class="quote">"I remember crying out to God almost down on my knees asking for guidance or to just feel at peace."</div>
-                <p>I searched for natural ways to heal. I discovered tarot, reiki, and mediumship, but every time I finished a class, I would feel empty. In May 2023, feeling hopeless, I searched for spiritual healings near me. I found a place that was different. When I arrived, the sadness I always felt was gone. I felt free, relieved, and lighter.</p>
-                <p>This inspired me to start my healing journey. My faith has been restored, and I realized this was a calling to be an instrument of God to help those in need.</p>
-            </div>
-        </div>
-    </div>
-</body>
- <footer style="background: #fdfbf7; padding: 100px 20px 60px; text-align: center; position: relative;">
-        <div style="width: 150px; height: 1px; background: linear-gradient(to right, transparent, #b8860b, transparent); margin: 0 auto 50px; opacity: 0.5;"></div>
 
-        <div style="max-width: 700px; margin: 0 auto;">
-            <h3 style="font-family: 'Cinzel', serif; color: #b8860b; font-size: 1.5em; letter-spacing: 3px; margin-bottom: 30px; font-weight: 400;">
-                Brave Soul Healings
-            </h3>
+    <section class="hero-section">
+        
+        <div class="focal-image-container">
+            <div class="halo-bg"></div>
             
-            <p style="font-family: 'Lato', sans-serif; color: #776d5a; line-height: 2; font-size: 1.1em;">
-                <span style="font-family: 'Cinzel', serif; color: #b8860b; display: block; margin-bottom: 5px; letter-spacing: 1px;">Natalie Guerrero</span>
-                Ontario, California <br>
-                <a href="tel:8404664744" style="color: #b8860b; text-decoration: none; border-bottom: 1px dotted rgba(184, 134, 11, 0.4);">840.466.4744</a> <br>
-                <a href="mailto:bravesoulhealings@gmail.com" style="color: #b8860b; text-decoration: none; border-bottom: 1px dotted rgba(184, 134, 11, 0.4);">bravesoulhealings@gmail.com</a>
-            </p>
+            <img src="natalie-main.jpg" alt="Natalie Guerrero" class="main-portrait">
+            
+            <img src="spirit-guide.jpg" alt="Spiritual Support" class="supporting-image">
+        </div>
 
-            <div style="margin-top: 60px; opacity: 0.6;">
-                <img src="https://cdn-icons-png.flaticon.com/512/2913/2913520.png" alt="dove icon" style="width: 30px; filter: sepia(1) saturate(5) hue-rotate(10deg); opacity: 0.3; margin-bottom: 15px;">
-                <p style="font-family: 'Cinzel', serif; font-size: 0.8em; color: #b8860b; letter-spacing: 2px;">
-                    Faith-Based Restoration
-                </p>
-                <p style="font-size: 0.7em; color: #aaa; margin-top: 20px; letter-spacing: 1px;">
-                    &copy; 2026 BRAVE SOUL HEALINGS
-                </p>
+        <div class="bio-text">
+            <h1>Natalie Guerrero</h1>
+            <div class="title-tag">Intuitive Faith Healer</div>
+
+            <div class="content-body">
+                <p>Growing up, I was a very shy, nervous person who often isolated myself in quiet reflection. For the longest time, I suffered from severe sadness that eventually manifested as panic attacks and anxiety.</p>
+                
+                <span class="highlight-quote">"I remember crying out to God almost down on my knees asking for guidance or to just feel at peace."</span>
+
+                <p>I always felt a deep connection to my ancestors, my Guardian angel, Archangels, and God. However, as I got older, I started to drift apart. It wasn't until 2020-2023 when everything started to feel very heavy that I began my search for true restoration.</p>
+                
+                <p>After exploring many paths that left me feeling empty, I finally found a place of spiritual healing in May 2023. The sadness vanished. I felt free, relieved, and lighter. My faith has been restored, and I realized this was my calling: to be an instrument of God to help those in need.</p>
             </div>
         </div>
-    </footer>  
-    
+    </section>
+
+    <footer>
+        <p style="font-family: 'Cinzel', serif; letter-spacing: 2px; color: var(--deep-red);">Brave Soul Healings</p>
+        <p>&copy; 2026 | Ontario, California</p>
+    </footer>
+
+</body>
 </html>
-
-
-
-
