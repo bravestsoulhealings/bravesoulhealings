@@ -1,185 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me | Brave Soul Healings</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400&family=Pinyon+Script&display=swap" rel="stylesheet">
-    <style>
-        /* CSS variables to match your index.html colors */
-        :root {
-            --gold: #b8860b;
-            --cream: #fdfbf7;
-            --text-grey: #444;
-        }
+<style>
+    /* ... (Keep your previous root and nav styles) ... */
 
-        body { 
-            margin: 0; 
-            font-family: 'Lato', sans-serif; 
-            background-color: var(--cream); 
-            color: var(--text-grey); 
-            line-height: 1.8;
-        }
+    .split-container {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 60px auto;
+        gap: 80px;
+        padding: 0 40px;
+        align-items: center;
+    }
 
-        /* NAVIGATION - Matches index.html */
-        nav { 
-            background: rgba(255, 255, 255, 0.98); 
-            padding: 20px; 
-            text-align: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 2px 10px rgba(218, 165, 32, 0.2); 
-        }
-        nav a { 
-            text-decoration: none; 
-            color: var(--gold); 
-            margin: 0 15px; 
-            font-size: 1.1em; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-        }
+    /* THE REDESIGNED PHOTO COLUMN */
+    .photo-column {
+        flex: 1;
+        min-width: 400px;
+        position: relative;
+        height: 700px; /* Gives space for the overlap */
+    }
 
-        /* TWO-COLUMN CONTAINER */
-        .split-container {
-            display: flex;
-            flex-wrap: wrap;
-            max-width: 1100px;
-            margin: 60px auto;
-            gap: 50px;
-            padding: 0 20px;
-        }
+    /* Main Portrait: The Arch */
+    .main-portrait-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 85%;
+        z-index: 2;
+        background: white;
+        padding: 10px;
+        border-radius: 250px 250px 20px 20px;
+        box-shadow: 0 20px 50px rgba(184, 134, 11, 0.15);
+    }
 
-        /* LEFT SIDE: Photos */
-        .photo-column {
-            flex: 1;
-            min-width: 350px;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
+    .main-portrait-wrapper img {
+        width: 100%;
+        border-radius: 240px 240px 15px 15px;
+        display: block;
+    }
 
-        .img-card {
-            background: white;
-            padding: 12px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(218, 165, 32, 0.15);
-            border: 1px solid rgba(218, 165, 32, 0.1);
-        }
+    /* Jesus Path: The Inset Foundation */
+    .jesus-path-wrapper {
+        position: absolute;
+        bottom: 50px;
+        right: 0;
+        width: 60%;
+        z-index: 3;
+        background: white;
+        padding: 8px;
+        border-radius: 15px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        border: 1px solid var(--gold);
+    }
 
-        .photo-column img {
-            width: 100%;
-            display: block;
-            border-radius: 10px;
-        }
+    .jesus-path-wrapper img {
+        width: 100%;
+        border-radius: 10px;
+        display: block;
+        filter: sepia(0.2); /* Softens the image to match your ethereal tone */
+    }
 
-        /* RIGHT SIDE: About Me Text */
-        .text-column {
-            flex: 1.2;
-            min-width: 350px;
-        }
+    /* Decorative Gold Leaf Behind */
+    .decoration-circle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 450px;
+        height: 450px;
+        border: 1px solid rgba(184, 134, 11, 0.2);
+        border-radius: 50%;
+        z-index: 1;
+    }
 
-        h1 { 
-            font-family: 'Cinzel', serif; 
-            color: var(--gold); 
-            font-size: 3em; 
-            margin-bottom: 5px; 
-        }
+    /* ... (Rest of your text-column styles) ... */
+</style>
 
-        .script-subtitle {
-            font-family: 'Pinyon Script', cursive;
-            color: var(--gold);
-            font-size: 1.8em;
-            margin-bottom: 30px;
-        }
-
-        .testimony-text p {
-            font-size: 1.15em;
-            margin-bottom: 25px;
-        }
-
-        .quote-style {
-            font-family: 'Cinzel', serif;
-            color: var(--gold);
-            font-style: italic;
-            border-left: 2px solid var(--gold);
-            padding-left: 20px;
-            margin: 40px 0;
-            font-size: 1.2em;
-        }
-
-        /* FOOTER - Matches index.html */
-        footer {
-            background: var(--cream);
-            padding: 100px 20px 60px;
-            text-align: center;
-            border-top: 1px solid rgba(184, 134, 11, 0.1);
-        }
-
-        @media (max-width: 800px) {
-            .split-container { flex-direction: column; }
-            h1, .script-subtitle { text-align: center; }
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="services.html">Services</a>
-        <a href="reviews.html">Testimonials</a>
-    </nav>
-
-    <div class="split-container">
+<div class="split-container">
+    
+    <div class="photo-column">
+        <div class="decoration-circle"></div>
         
-        <div class="photo-column">
-            <div class="img-card">
-                <img src="natalie-portrait.jpg" alt="Natalie Guerrero with Virgin Mary">
-            </div>
-
-            <div class="img-card">
-                <img src="jesus-path.jpg" alt="Jesus helping through the struggle">
-            </div>
+        <div class="main-portrait-wrapper">
+            <img src="natalie-portrait.jpg" alt="Natalie Guerrero">
         </div>
 
-        <div class="text-column">
-            <h1>My Testimony</h1>
-            <div class="script-subtitle">Healed to Heal Others</div>
-
-            <div class="testimony-text">
-                <p><strong>My name is Natalie Guerrero.</strong> I am an intuitive faith healer. Growing up, I was a very shy, nervous person. I would always isolate myself and I was very quiet.</p>
-
-                <p>For the longest time, I was suffering from severe sadness that at one point I started to experience panic attacks and anxiety. I always felt a deep connection to my ancestors, my Guardian angel, Archangels, and God. However, as I got older, I started to drift apart.</p>
-
-                <div class="quote-style">
-                    "I remember crying out to God almost down on my knees asking for guidance or to just feel at peace."
-                </div>
-
-                <p>It wasn't until 2020-2023 when everything started to feel very heavy. I searched for natural ways to heal. I discovered tarot, reiki, and mediumship, but every time I finished a class, I would feel empty. In May 2023, I found a place that was different. When I arrived, the sadness I always felt was gone. I felt free, relieved, and lighter.</p>
-                
-                <p>This inspired me to start my healing journey. My faith has been restored, and I realized this was a calling to be an instrument of God to help those in need.</p>
-            </div>
+        <div class="jesus-path-wrapper">
+            <img src="jesus-path.jpg" alt="The Journey of Faith">
+            <p style="font-family: 'Cinzel', serif; font-size: 0.7em; text-align: center; margin: 10px 0 5px; color: var(--gold); letter-spacing: 2px;">Strength in the Struggle</p>
         </div>
-
     </div>
 
-    <footer>
-        <div style="width: 150px; height: 1px; background: linear-gradient(to right, transparent, #b8860b, transparent); margin: 0 auto 50px; opacity: 0.5;"></div>
-        <div style="max-width: 700px; margin: 0 auto;">
-            <h3 style="font-family: 'Cinzel', serif; color: #b8860b; font-size: 1.5em; letter-spacing: 3px; margin-bottom: 30px; font-weight: 400;">Brave Soul Healings</h3>
-            <p style="font-family: 'Lato', sans-serif; color: #776d5a; line-height: 2; font-size: 1.1em;">
-                <span style="font-family: 'Cinzel', serif; color: #b8860b; display: block; margin-bottom: 5px; letter-spacing: 1px;">Natalie Guerrero</span>
-                Ontario, California <br>
-                <a href="tel:8404664744" style="color: #b8860b; text-decoration: none;">840.466.4744</a> <br>
-                <a href="mailto:bravesoulhealings@gmail.com" style="color: #b8860b; text-decoration: none;">bravesoulhealings@gmail.com</a>
-            </p>
-            <div style="margin-top: 60px; opacity: 0.6;">
-                <p style="font-family: 'Cinzel', serif; font-size: 0.8em; color: #b8860b; letter-spacing: 2px;">Faith-Based Restoration</p>
-                <p style="font-size: 0.7em; color: #aaa; margin-top: 20px; letter-spacing: 1px;">&copy; 2026 BRAVE SOUL HEALINGS</p>
+    <div class="text-column">
+        <h1>My Testimony</h1>
+        <div class="script-subtitle">Healed to Heal Others</div>
+        <div class="testimony-text">
+            <p><strong>My name is Natalie Guerrero...</strong> (your text here)</p>
             </div>
-        </div>
-    </footer>
-
-</body>
-</html>
+    </div>
+</div>
