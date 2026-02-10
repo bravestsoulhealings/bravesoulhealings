@@ -50,7 +50,7 @@
             display: flex;
             align-items: stretch; 
             gap: 70px;
-            margin-bottom: 80px;
+            margin-bottom: 100px;
         }
 
         .portrait-side {
@@ -87,64 +87,68 @@
             margin-bottom: 30px;
         }
 
-        /* PROFESSIONAL UNIFORM TESTIMONY */
+        /* CLEAN UNIFORM TESTIMONY */
         .testimony-body p {
             font-size: 1.1em;
             text-align: justify;
-            margin-bottom: 22px;
+            margin-bottom: 25px;
             font-weight: 300;
             color: var(--text-grey);
         }
 
-        /* THE CINEMATIC HORIZON SECTION */
-        .cinematic-horizon {
-            position: relative;
-            width: 100%;
-            height: 450px; /* Bigger, impactful size */
-            margin-top: 60px;
-            overflow: hidden;
+        /* UNIQUE BOTTOM SECTION: Side-by-Side Floating Quote */
+        .divine-anchor {
+            border-top: 1px solid rgba(184, 134, 11, 0.1);
+            padding-top: 80px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 60px;
+            max-width: 950px;
+            margin: 0 auto;
         }
 
-        .horizon-bg {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url('jesus-path.jpg') no-repeat center center;
-            background-size: cover;
-            filter: brightness(0.6) sepia(0.2); /* Darkens so quote pops */
-        }
-
-        .horizon-content {
+        .anchor-image {
+            flex: 1;
             position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 0 20px;
-            max-width: 900px;
         }
 
-        .horizon-quote {
+        .anchor-image img {
+            width: 100%;
+            max-height: 450px; /* Big enough to see detail, but won't cut off */
+            object-fit: contain; /* Keeps the WHOLE photo visible */
+            border-radius: 8px;
+            box-shadow: 0 15px 35px rgba(184, 134, 11, 0.1);
+            background: white; /* Protects edges of photo */
+            padding: 10px;
+        }
+
+        .anchor-quote-side {
+            flex: 1.5;
+        }
+
+        .anchor-quote-side blockquote {
             font-family: 'Cinzel', serif;
-            color: white;
-            font-size: 2em;
+            color: var(--gold);
+            font-size: 1.7em;
             font-style: italic;
-            line-height: 1.5;
-            text-shadow: 2px 2px 15px rgba(0,0,0,0.5);
+            line-height: 1.6;
+            margin: 0;
+            border-left: 2px solid rgba(184, 134, 11, 0.2);
+            padding-left: 30px;
         }
 
         /* FOOTER */
         footer {
+            margin-top: 100px;
             padding: 80px 20px;
             text-align: center;
-            border-top: 1px solid rgba(184, 134, 11, 0.1);
+            border-top: 1px solid rgba(184, 134, 11, 0.05);
         }
 
         @media (max-width: 900px) {
-            .editorial-grid { flex-direction: column; }
+            .editorial-grid, .divine-anchor { flex-direction: column; text-align: center; }
+            .anchor-quote-side blockquote { border-left: none; padding-left: 0; font-size: 1.3em; }
             .portrait-side img { height: 400px; }
-            .cinematic-horizon { height: 350px; }
-            .horizon-quote { font-size: 1.4em; }
         }
     </style>
 </head>
@@ -174,19 +178,20 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="cinematic-horizon">
-        <div class="horizon-bg"></div>
-        <div class="horizon-content">
-            <div class="horizon-quote">
-                "If you feel like you are drowning in shadows, look for me. I am the proof that the morning always comes, and the light always wins."
+        <div class="divine-anchor">
+            <div class="anchor-image">
+                <img src="jesus-path.jpg" alt="Divine Path">
+            </div>
+            <div class="anchor-quote-side">
+                <blockquote>
+                    "If you feel like you are drowning in shadows, look for me. I am the proof that the morning always comes, and the light always wins."
+                </blockquote>
             </div>
         </div>
     </div>
 
     <footer>
-        <div style="width: 150px; height: 1px; background: var(--gold); margin: 0 auto 40px; opacity: 0.3;"></div>
         <h3 style="font-family: 'Cinzel', serif; color: var(--gold); letter-spacing: 3px; font-weight: 400;">Brave Soul Healings</h3>
         <p style="color: #776d5a;">Natalie Guerrero | Ontario, California</p>
     </footer>
